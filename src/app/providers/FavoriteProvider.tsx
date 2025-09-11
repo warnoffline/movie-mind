@@ -12,6 +12,9 @@ export const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const [favorites, setFavorites] = useState<number[]>([]);
 
   useEffect(() => {
+    const stored = localStorage.getItem(FAVORITES_KEY);
+    if (stored) setFavorites(JSON.parse(stored));
+
     const handleStorage = (e: StorageEvent) => {
       if (e.key === FAVORITES_KEY && e.newValue) {
         setFavorites(JSON.parse(e.newValue));
