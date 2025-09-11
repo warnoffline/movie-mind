@@ -1,0 +1,16 @@
+.button {
+  border-radius: 24px;
+  padding: 5px 12px;
+
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    span {
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+}

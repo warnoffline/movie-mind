@@ -1,0 +1,18 @@
+.favorites {
+  padding: 20px;
+
+  &__header {
+    padding: 20px 30px;
+  }
+}
+
+.empty {
+  display: flex;
+  justify-content: center;
+  height: var(--vh-70);
+  align-items: center;
+  p {
+    width: 50%;
+    text-align: center;
+  }
+}

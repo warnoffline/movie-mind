@@ -1,0 +1,9 @@
+.loading {
+  width: 100%;
+  min-height: var(--vh-40);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
