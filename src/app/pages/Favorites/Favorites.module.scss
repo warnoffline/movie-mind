@@ -1,3 +1,5 @@
+@use '@/styles' as *;
+
 .favorites {
   padding: 20px;
 
@@ -9,8 +11,9 @@
 .empty {
   display: flex;
   justify-content: center;
-  height: var(--vh-70);
+  height: $vh-70;
   align-items: center;
+
   p {
     width: 50%;
     text-align: center;

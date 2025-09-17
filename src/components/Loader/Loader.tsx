@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import React from 'react';
 
 import s from './Loader.module.scss';
 import Icon from '../icons/Icon';
@@ -25,7 +26,7 @@ const Loader: React.FC<LoaderProps> = ({ size = 'l', className, color, ...props 
       height={dim}
       className={cn(s.loader, className)}
       viewBox={`0 0 ${dim} ${dim}`}
-      style={{ color: color || 'var(--text-accent)' }}
+      style={color ? { color } : undefined}
       {...props}
     >
       <path
@@ -37,4 +38,4 @@ const Loader: React.FC<LoaderProps> = ({ size = 'l', className, color, ...props 
   );
 };
 
-export default Loader;
+export default React.memo(Loader);

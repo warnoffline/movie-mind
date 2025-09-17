@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { Loading } from '@/components/Loading';
 import { MovieList } from '@/components/MovieList';
-import Text from '@/components/Text';
+import { Text } from '@/components/Text';
 import { getMovies } from '@/services/movies';
 import { type IMovieShort } from '@/types/movies';
 import { useFavorites } from '@/utils/hooks/useFavorites';

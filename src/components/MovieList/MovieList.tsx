@@ -1,19 +1,18 @@
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { type IMovieShort } from '@/types/movies';
 
-import Card from '../Card';
+import { Card } from '../Card';
 import s from './MovieList.module.scss';
 import { FavoriteButton } from '../FavoriteButton';
-import { GenreTags } from '../GenreTags/GenreTags';
-
-import type React from 'react';
+import { GenreTags } from '../GenreTags';
 
 type MovieListProps = {
   movies: IMovieShort[];
 };
 
-export const MovieList: React.FC<MovieListProps> = ({ movies }) => {
+const MovieList: React.FC<MovieListProps> = ({ movies }) => {
   const navigate = useNavigate();
 
   return (
@@ -36,3 +35,5 @@ export const MovieList: React.FC<MovieListProps> = ({ movies }) => {
     </div>
   );
 };
+
+export default React.memo(MovieList);

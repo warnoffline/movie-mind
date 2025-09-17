@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Button from '../Button';
-import Text from '../Text';
+import { Button } from '../Button';
+import { Text } from '../Text';
 import s from './Pagination.module.scss';
 
 type PaginationProps = {
@@ -10,7 +10,7 @@ type PaginationProps = {
   onChange: (newPage: number) => void;
 };
 
-export const Pagination: React.FC<PaginationProps> = ({ page, totalPages, onChange }) => (
+const Pagination: React.FC<PaginationProps> = ({ page, totalPages, onChange }) => (
   <div className={s.pagination__wrapper}>
     <div className={s.pagination}>
       <Button onClick={() => onChange(Math.max(1, page - 1))} disabled={page === 1}>
@@ -28,3 +28,5 @@ export const Pagination: React.FC<PaginationProps> = ({ page, totalPages, onChan
     </div>
   </div>
 );
+
+export default React.memo(Pagination);

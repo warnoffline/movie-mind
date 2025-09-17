@@ -41,4 +41,4 @@ const CheckBox: React.FC<CheckBoxProps> = ({ onChange, checked, className, ...pr
   );
 };
 
-export default CheckBox;
+export default React.memo(CheckBox);

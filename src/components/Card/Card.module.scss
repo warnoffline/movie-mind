@@ -3,7 +3,7 @@
 .card {
   width: 360px;
   min-height: 600px;
-  background-color: var(--bg-card);
+  background-color: $bg-card;
   display: flex;
   flex-direction: column;
   border-radius: 16px;
@@ -63,17 +63,13 @@
       width: 320px;
     }
 
-    &::before {
-      content: '';
+    .bg-blur {
       position: absolute;
       bottom: 0;
       width: 90%;
       height: 95%;
-
-      background-image: var(--bg-image);
       background-size: cover;
       background-position: center;
-
       filter: blur(20px);
       z-index: 0;
     }

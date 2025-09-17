@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { FavoriteButton } from '@/components/FavoriteButton';
-import { GenreTags } from '@/components/GenreTags/GenreTags';
-import Text from '@/components/Text';
+import { GenreTags } from '@/components/GenreTags';
+import { Text } from '@/components/Text';
 import type { IMovie } from '@/types/movies';
 
 import { getMeta, getRatings } from './constants';

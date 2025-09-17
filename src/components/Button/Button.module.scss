@@ -1,3 +1,5 @@
+@use '@/styles' as *;
+
 .button {
   display: flex;
   justify-content: center;
@@ -15,59 +17,59 @@
 }
 
 .button--contained {
-  color: var(--button-primary-text);
-  background-color: var(--button-primary-bg);
-  border: 2px solid var(--button-primary-bg);
+  color: $button-primary-text;
+  background-color: $button-primary-bg;
+  border: 2px solid $button-primary-bg;
 
   &:hover:not(:disabled) {
-    background-color: var(--button-primary-bg-hover);
-    border: 2px solid var(--button-primary-bg-hover);
+    background-color: $button-primary-bg-hover;
+    border: 2px solid $button-primary-bg-hover;
   }
 
   &:active:not(:disabled) {
-    background-color: var(--button-primary-bg-active);
-    border: 2px solid var(--button-primary-bg-active);
+    background-color: $button-primary-bg-active;
+    border: 2px solid $button-primary-bg-active;
   }
 
   &.loading {
-    background-color: var(--button-primary-bg);
+    background-color: $button-primary-bg;
     cursor: default;
     pointer-events: none;
   }
 }
 
 .button--outlined {
-  color: var(--button-primary-bg);
+  color: $button-primary-bg;
   background-color: transparent;
-  border: 2px solid var(--button-primary-bg);
+  border: 2px solid $button-primary-bg;
 
   &:hover:not(:disabled) {
-    background-color: var(--button-primary-bg);
-    color: var(--button-primary-text);
+    background-color: $button-primary-bg;
+    color: $button-primary-text;
   }
 
   &:active:not(:disabled) {
-    background-color: var(--button-primary-bg-active);
-    border-color: var(--button-primary-bg-active);
-    color: var(--button-primary-text);
+    background-color: $button-primary-bg-active;
+    border-color: $button-primary-bg-active;
+    color: $button-primary-text;
   }
 
   &.loading {
-    border-color: var(--button-primary-bg);
-    color: var(--button-primary-text);
+    border-color: $button-primary-bg;
+    color: $button-primary-text;
     cursor: default;
     pointer-events: none;
   }
 }
 
 .button--disabled {
-  background-color: var(--button-primary-bg-disabled);
-  border-color: var(--button-primary-bg-disabled);
-  color: var(--button-secondary-text);
+  background-color: $button-primary-bg-disabled;
+  border-color: $button-primary-bg-disabled;
+  color: $text-secondary;
   cursor: not-allowed;
 
   &.button--outlined {
-    border-color: var(--button-primary-bg-disabled);
-    color: var(--button-primary-bg-disabled);
+    border-color: $button-primary-bg-disabled;
+    color: $button-primary-bg-disabled;
   }
 }

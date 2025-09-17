@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import Text from '../Text';
+import { Text } from '../Text';
 import s from './Card.module.scss';
 
 export type CardProps = {
@@ -35,10 +35,8 @@ const Card: React.FC<CardProps> = ({
 }) => {
   return (
     <div className={cn(s['card'], className)} onClick={onClick}>
-      <div
-        className={s['card__image-wrapper']}
-        style={{ '--bg-image': `url(${image})` } as React.CSSProperties}
-      >
+      <div className={s['card__image-wrapper']}>
+        <span className={s['bg-blur']} style={{ backgroundImage: `url(${image})` }} />
         <img src={image} alt="img" />
       </div>
       <div className={s['card__body']}>
@@ -70,4 +68,4 @@ const Card: React.FC<CardProps> = ({
   );
 };
 
-export default Card;
+export default React.memo(Card);

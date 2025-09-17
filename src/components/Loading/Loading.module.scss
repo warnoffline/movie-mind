@@ -1,6 +1,8 @@
+@use '@/styles' as *;
+
 .loading {
   width: 100%;
-  min-height: var(--vh-40);
+  min-height: $vh-40;
   display: flex;
   justify-content: center;
   align-items: center;

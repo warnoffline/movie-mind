@@ -5,20 +5,23 @@ import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import ArrowDownIcon from '@/components/icons/ArrowDownIcon';
-import Text from '@/components/Text';
-import { genres, genreImages } from '@/utils/genres';
+import { Text } from '@/components/Text';
+import { GENRE_NAME_MAP, GENRE_IMAGES_MAP, RU_TO_EN_GENRE_MAP } from '@/utils/genres';
 
 import s from './Categories.module.scss';
+import { getBreakpoints } from './config';
 
 type Props = {
   selectedCategory?: string;
-  onSelectCategory?: (category: string) => void;
+  onSelectCategory?: (category: string | undefined) => void;
 };
 
 export const Categories: React.FC<Props> = ({ selectedCategory, onSelectCategory }) => {
+  const genreList = useMemo(() => Object.values(GENRE_NAME_MAP), []);
+
   const initialSlide = useMemo(() => {
-    return selectedCategory ? genres.indexOf(selectedCategory) : 0;
-  }, [selectedCategory]);
+    return selectedCategory ? genreList.indexOf(selectedCategory) : 0;
+  }, [selectedCategory, genreList]);
 
   return (
     <div className={s.categories}>
@@ -43,25 +46,25 @@ export const Categories: React.FC<Props> = ({ selectedCategory, onSelectCategory
           slidesPerView={5}
           spaceBetween={12}
           initialSlide={initialSlide}
-          breakpoints={{
-            320: { slidesPerView: 2 },
-            640: { slidesPerView: 3 },
-            1024: { slidesPerView: 5 },
-          }}
+          breakpoints={getBreakpoints}
         >
-          {genres.map((cat) => (
+          {genreList.map((cat) => (
             <SwiperSlide
               key={cat}
               className={`${s.category} ${cat === selectedCategory ? s.active : ''}`}
               onClick={() => {
                 if (selectedCategory === cat) {
-                  return onSelectCategory?.('');
+                  return onSelectCategory?.(undefined);
                 }
 
                 return onSelectCategory?.(cat);
               }}
             >
-              <img src={genreImages[cat]} alt={cat} className={s.categoryImg} />
+              <img
+                src={GENRE_IMAGES_MAP[RU_TO_EN_GENRE_MAP[cat]]}
+                alt={GENRE_NAME_MAP[RU_TO_EN_GENRE_MAP[cat]]}
+                className={s.categoryImg}
+              />
             </SwiperSlide>
           ))}
         </Swiper>

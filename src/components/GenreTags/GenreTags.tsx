@@ -1,17 +1,18 @@
 import cn from 'classnames';
+import React from 'react';
 import { useMemo } from 'react';
 
 import { getGenres } from '@/utils/genres';
 
 import s from './GenreTags.module.scss';
-import Text from '../Text';
+import { Text } from '../Text';
 
 type GenreTagsProps = {
   genres: { name: string }[];
   isFull?: boolean;
 };
 
-export const GenreTags: React.FC<GenreTagsProps> = ({ genres, isFull }) => {
+const GenreTags: React.FC<GenreTagsProps> = ({ genres, isFull }) => {
   const prepared = useMemo(() => getGenres(genres), [genres]);
 
   return (
@@ -29,3 +30,5 @@ export const GenreTags: React.FC<GenreTagsProps> = ({ genres, isFull }) => {
     </div>
   );
 };
+
+export default React.memo(GenreTags);

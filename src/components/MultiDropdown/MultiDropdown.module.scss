@@ -1,3 +1,5 @@
+@use '@/styles' as *;
+
 .dropdown {
   &-wrapper {
     display: flex;
@@ -6,7 +8,7 @@
   }
 
   &-content input {
-    color: var(--text-secondary);
+    color: $text-secondary;
   }
 
   &-options {
@@ -23,13 +25,13 @@
     font-family: 'Roboto';
 
     &:hover {
-      color: var(--text-secondary);
+      color: $text-secondary;
 
       .selected {
-        color: var(--text-accent);
+        color: $text-accent;
 
         &:hover {
-          color: var(--text-secondary);
+          color: $text-secondary;
         }
       }
     }

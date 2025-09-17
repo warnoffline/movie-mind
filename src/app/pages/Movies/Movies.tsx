@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router';
 import { Loading } from '@/components/Loading';
 import { MovieList } from '@/components/MovieList';
 import { Pagination } from '@/components/Pagination';
-import Text from '@/components/Text';
+import { Text } from '@/components/Text';
 import { getMovies, getMoviesByGenres } from '@/services/movies';
 import type { IMovieShort } from '@/types/movies';
 
@@ -14,9 +14,11 @@ import s from './Movies.module.scss';
 export const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const pageParam = Number(searchParams.get('page')) || 1;
-  const categoryParam = searchParams.get('category') || undefined;
+  const categoryParam = searchParams.get('category') as string | null;
 
-  const [selectedCategory, setSelectedCategory] = useState<string | undefined>(categoryParam);
+  const [selectedCategory, setSelectedCategory] = useState<string | undefined>(
+    categoryParam ?? undefined
+  );
   const [movies, setMovies] = useState<IMovieShort[]>([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(pageParam);

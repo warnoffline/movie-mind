@@ -58,13 +58,13 @@
 .active {
   img {
     transform: scale(0.95);
-    border: 2px solid var(--text-accent);
+    border: 2px solid $text-accent;
   }
 }
 
 .navPrev,
 .navNext {
-  color: var(--text-accent);
+  color: $text-accent;
   position: absolute;
   top: 45%;
   transform: translateY(-50%);
@@ -72,7 +72,7 @@
   cursor: pointer;
 
   :hover {
-    color: var(--text-accent-hover);
+    color: $text-accent-hover;
     transform: scale(1.1);
   }
 }

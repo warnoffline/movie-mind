@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useCallback } from 'react';
 
 const FAVORITES_KEY = 'favorites';
 
@@ -25,13 +25,13 @@ export const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     return () => window.removeEventListener('storage', handleStorage);
   }, []);
 
-  const toggleFavorite = (id: number) => {
+  const toggleFavorite = useCallback((id: number) => {
     setFavorites((prev) => {
       const updated = prev.includes(id) ? prev.filter((f) => f !== id) : [...prev, id];
       localStorage.setItem(FAVORITES_KEY, JSON.stringify(updated));
       return updated;
     });
-  };
+  }, []);
 
   const isFavorite = (id: number) => favorites.includes(id);
 

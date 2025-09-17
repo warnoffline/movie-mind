@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
 import s from './Header.module.scss';
-import Text from '../Text';
+import { Text } from '../Text';
 
 const Header = () => {
   return (

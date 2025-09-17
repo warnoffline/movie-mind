@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import Button from '@/components/Button';
+import { Button } from '@/components/Button';
 import { Loading } from '@/components/Loading';
 import { MovieList } from '@/components/MovieList';
-import Text from '@/components/Text';
+import { Text } from '@/components/Text';
 import { getMovie, getMoviesByGenres } from '@/services/movies';
 import { type IMovie, type IMovieShort } from '@/types/movies';
 

@@ -1,8 +1,8 @@
 import cn from 'classnames';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import ArrowDownIcon from '../icons/ArrowDownIcon';
-import Input from '../Input';
+import { Input } from '../Input';
 import s from './MultiDropdown.module.scss';
 
 export type Option = {
@@ -61,26 +61,29 @@ const MultiDropdown: React.FC<MultiDropdownProps> = ({
     };
   }, []);
 
-  const handleToggleDropdown = () => {
+  const handleToggleDropdown = useCallback(() => {
     if (!disabled) {
       setIsOpen((prev) => !prev);
       if (!isOpen) {
         setSearchItem('');
       }
     }
-  };
+  }, [disabled, isOpen]);
 
-  const handleSelectOption = (option: Option) => {
-    if (!value.some((selected) => selected.key === option.key)) {
-      onChange([...value, option]);
-    } else {
-      onChange(value.filter((selected) => selected.key !== option.key));
-    }
-  };
+  const handleSelectOption = useCallback(
+    (option: Option) => {
+      if (!value.some((selected) => selected.key === option.key)) {
+        onChange([...value, option]);
+      } else {
+        onChange(value.filter((selected) => selected.key !== option.key));
+      }
+    },
+    [onChange, value]
+  );
 
-  const handleInputChange = (value: string) => {
+  const handleInputChange = useCallback((value: string) => {
     setSearchItem(value);
-  };
+  }, []);
 
   return (
     <div className={cn(s['dropdown-wrapper'], className)} ref={dropdownRef}>
@@ -114,4 +117,4 @@ const MultiDropdown: React.FC<MultiDropdownProps> = ({
   );
 };
 
-export default MultiDropdown;
+export default React.memo(MultiDropdown);

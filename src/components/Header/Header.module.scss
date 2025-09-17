@@ -1,7 +1,9 @@
+@use '@/styles' as *;
+
 .header {
   display: flex;
-  height: var(--vh-6);
-  background-color: var(--bg-header);
+  height: $vh-6;
+  background-color: $bg-header;
   align-items: center;
   padding: 0 20px;
   justify-content: space-between;
@@ -18,20 +20,20 @@
 
     a {
       text-decoration: none;
-      color: var(--text-accent);
+      color: $text-accent;
       font-weight: 500;
 
       &:hover {
-        color: var(--text-accent-hover);
+        color: $text-accent-hover;
       }
 
       &:active {
-        color: var(--text-accent-active);
+        color: v$text-accent-active;
       }
     }
 
     .activeLink {
-      color: var(--text-primary);
+      color: $text-primary;
       text-decoration: underline;
     }
   }

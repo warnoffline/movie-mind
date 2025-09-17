@@ -1,5 +1,5 @@
 import ArrowDownIcon from '@/components/icons/ArrowDownIcon';
-import Text from '@/components/Text';
+import { Text } from '@/components/Text';
 
 import s from './GoBackButton.module.scss';
 

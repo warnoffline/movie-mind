@@ -1,6 +1,9 @@
+@use '@/styles' as *;
+
 .loader {
   display: inline-block;
   animation: spin 0.5s linear infinite;
+  color: $text-accent;
 
   svg {
     width: 100%;

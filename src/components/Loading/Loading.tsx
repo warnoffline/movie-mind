@@ -1,5 +1,5 @@
-import Loader from '../Loader';
-import Text from '../Text';
+import { Loader } from '../Loader';
+import { Text } from '../Text';
 import s from './Loading.module.scss';
 
 export const Loading = () => {

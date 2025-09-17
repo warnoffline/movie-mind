@@ -1,3 +1,5 @@
+@use '@/styles' as *;
+
 .checkbox {
   display: inline-flex;
   align-items: center;
@@ -21,7 +23,7 @@
   }
 
   .checkbox-input:hover + .checkbox-custom {
-    border-color: var(--text-accent);
+    border-color: $text-accent;
     cursor: pointer;
   }
 

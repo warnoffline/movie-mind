@@ -1,20 +1,14 @@
-:root {
-  --vh: 100vh;
-}
+$vh: 100vh;
 
 @supports (height: 100dvh) {
-  :root {
-    --vh: 100dvh;
-  }
+  $vh: 100dvh;
 }
 
-:root {
-  --vh-100: var(--vh);
-  --vh-94: calc(var(--vh) * 0.94);
-  --vh-70: calc(var(--vh) * 0.7);
-  --vh-40: calc(var(--vh) * 0.4);
-  --vh-6: calc(var(--vh) * 0.06);
-}
+$vh-100: $vh;
+$vh-94: $vh * 0.94;
+$vh-70: $vh * 0.7;
+$vh-40: $vh * 0.4;
+$vh-6: $vh * 0.06;
 
 $breakpoint-mobile: 480px;
 $breakpoint-tablet: 768px;
