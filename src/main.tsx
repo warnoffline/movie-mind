@@ -1,6 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
+import '@/configs/mobx/configureMobX';
+
 import { AppProviders } from './app/providers';
 import './styles/index.scss';
 

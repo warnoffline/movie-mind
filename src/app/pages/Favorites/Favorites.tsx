@@ -1,43 +1,16 @@
-import { useEffect, useState } from 'react';
+import { observer } from 'mobx-react-lite';
 
 import { Loading } from '@/components/Loading';
 import { MovieList } from '@/components/MovieList';
 import { Text } from '@/components/Text';
-import { getMovies } from '@/services/movies';
-import { type IMovieShort } from '@/types/movies';
-import { useFavorites } from '@/utils/hooks/useFavorites';
+import { useFavoriteStore } from '@/store';
 
 import s from './Favorites.module.scss';
 
-export const Favorites = () => {
-  const { favorites } = useFavorites();
-  const [movies, setMovies] = useState<IMovieShort[]>([]);
-  const [loading, setLoading] = useState(true);
+const Favorites = observer(() => {
+  const { movies, loadingStage } = useFavoriteStore();
 
-  useEffect(() => {
-    const loadFavorites = async () => {
-      setLoading(true);
-      try {
-        const { movies: allMovies } = await getMovies(1, 500);
-
-        const favMovies = allMovies.filter((m) => favorites.includes(m.id));
-        setMovies(favMovies);
-      } catch (err) {
-        throw new Error(err as string);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (favorites.length > 0) {
-      loadFavorites();
-    } else {
-      setMovies([]);
-      setLoading(false);
-    }
-  }, [favorites]);
-
-  if (loading) {
+  if (loadingStage.isLoading) {
     return <Loading />;
   }
 
@@ -63,4 +36,6 @@ export const Favorites = () => {
       </div>
     </div>
   );
-};
+});
+
+export default Favorites;

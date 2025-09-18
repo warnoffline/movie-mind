@@ -14,7 +14,7 @@ const Pagination: React.FC<PaginationProps> = ({ page, totalPages, onChange }) =
   <div className={s.pagination__wrapper}>
     <div className={s.pagination}>
       <Button onClick={() => onChange(Math.max(1, page - 1))} disabled={page === 1}>
-        Назад
+        <Text view="p-18">Назад</Text>
       </Button>
       <Text color="primary" view="p-14">
         {page} / {totalPages || 1}
@@ -23,7 +23,7 @@ const Pagination: React.FC<PaginationProps> = ({ page, totalPages, onChange }) =
         onClick={() => onChange(Math.min(totalPages, page + 1))}
         disabled={page === totalPages || totalPages === 0}
       >
-        Вперед
+        <Text view="p-18">Вперед</Text>
       </Button>
     </div>
   </div>

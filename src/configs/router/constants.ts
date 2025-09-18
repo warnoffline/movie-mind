@@ -3,6 +3,14 @@ export const routes = {
     mask: '/',
     create: () => '/',
   },
+  login: {
+    mask: '/login',
+    create: () => '/login',
+  },
+  profile: {
+    mask: '/profile',
+    create: () => '/profile',
+  },
   movies: {
     mask: '/movies',
     create: () => '/movies',

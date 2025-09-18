@@ -13,7 +13,7 @@ export const GoBackButton: React.FC<Props> = ({ onClick }) => {
       <button className={s.goBack} onClick={onClick}>
         <ArrowDownIcon className={s.icon} />
         <Text view="p-20" weight="medium">
-          Назад
+          <Text view="p-18">Назад</Text>
         </Text>
       </button>
     </div>
