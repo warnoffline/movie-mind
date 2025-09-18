@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { observer } from 'mobx-react-lite';
-import { useCallback, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import { useSearchStore, useUserStore } from '@/store';
@@ -31,13 +31,13 @@ const Header = observer(() => {
     },
   });
 
-  const handleClear = useCallback(() => {
+  const handleClear = () => {
     setQuery('');
     setIsFocused(false);
     inputRef.current?.blur();
     setIsMenuOpen(false);
     reset();
-  }, [reset, setQuery]);
+  };
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
@@ -73,7 +73,6 @@ const Header = observer(() => {
             onFocus={() => setIsFocused(true)}
             onBlur={() =>
               setTimeout(() => {
-                setQuery('');
                 setIsFocused(false);
                 reset();
               }, 150)

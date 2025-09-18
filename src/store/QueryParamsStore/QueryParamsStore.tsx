@@ -21,6 +21,8 @@ export class QueryParamsStore {
   }
 
   setParams(key: string, value: string | null) {
+    this._params = new URLSearchParams(window.location.search);
+
     if (value) {
       this._params.set(key, value);
     } else {
