@@ -2,12 +2,16 @@ import { Loader } from '../Loader';
 import { Text } from '../Text';
 import s from './Loading.module.scss';
 
-export const Loading = () => {
+type LoadingProps = {
+  text?: string;
+};
+
+export const Loading: React.FC<LoadingProps> = ({ text = 'Загружаем фильмы...' }) => {
   return (
     <div className={s.loading}>
       <Loader size="xl" />
       <Text view="p-20" weight="bold" color="primary">
-        Загружаем фильмы...
+        {text}
       </Text>
     </div>
   );

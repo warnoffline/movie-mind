@@ -110,3 +110,10 @@ export const getMoviesByGenres = async (
     throw new Error(err as string);
   }
 };
+
+export const searchMoviesByTitle = async (query: string): Promise<IMovieShort[]> => {
+  const { movies: allMovies } = await getMovies(1, 500);
+  const q = query.toLowerCase();
+
+  return allMovies.filter((m) => m.title.toLowerCase().includes(q));
+};

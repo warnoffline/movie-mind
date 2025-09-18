@@ -1,3 +1,5 @@
+import cn from 'classnames';
+import { motion } from 'framer-motion';
 import React, { useMemo } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -10,6 +12,7 @@ import { GENRE_NAME_MAP, GENRE_IMAGES_MAP, RU_TO_EN_GENRE_MAP } from '@/utils/ge
 
 import s from './Categories.module.scss';
 import { getBreakpoints } from './config';
+import { itemVariants } from './config';
 
 type Props = {
   selectedCategory?: string;
@@ -49,22 +52,26 @@ export const Categories: React.FC<Props> = ({ selectedCategory, onSelectCategory
           breakpoints={getBreakpoints}
         >
           {genreList.map((cat) => (
-            <SwiperSlide
-              key={cat}
-              className={`${s.category} ${cat === selectedCategory ? s.active : ''}`}
-              onClick={() => {
-                if (selectedCategory === cat) {
-                  return onSelectCategory?.(undefined);
-                }
-
-                return onSelectCategory?.(cat);
-              }}
-            >
-              <img
-                src={GENRE_IMAGES_MAP[RU_TO_EN_GENRE_MAP[cat]]}
-                alt={GENRE_NAME_MAP[RU_TO_EN_GENRE_MAP[cat]]}
-                className={s.categoryImg}
-              />
+            <SwiperSlide key={cat}>
+              <motion.div
+                className={cn(s.category, { [s.active]: cat === selectedCategory })}
+                variants={itemVariants}
+                initial="hidden"
+                animate="visible"
+                whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                  if (selectedCategory === cat) {
+                    return onSelectCategory?.(undefined);
+                  }
+                  return onSelectCategory?.(cat);
+                }}
+              >
+                <img
+                  src={GENRE_IMAGES_MAP[RU_TO_EN_GENRE_MAP[cat]]}
+                  alt={GENRE_NAME_MAP[RU_TO_EN_GENRE_MAP[cat]]}
+                  className={s.categoryImg}
+                />
+              </motion.div>
             </SwiperSlide>
           ))}
         </Swiper>

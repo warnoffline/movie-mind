@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Loader } from '../Loader';
-import { Text } from '../Text';
 import s from './Button.module.scss';
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -36,7 +35,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button className={classes} disabled={isDisabled} {...props}>
       {loading && <Loader size="s" />}
-      <Text view="p-18">{children}</Text>
+      <div>{children}</div>
     </button>
   );
 };
