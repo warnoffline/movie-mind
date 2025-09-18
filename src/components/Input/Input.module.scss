@@ -1,0 +1,35 @@
+@use '@/styles' as *;
+
+.input {
+  &-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &-icon {
+    position: absolute;
+    right: 12px;
+    top: 55%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  &-field {
+    width: 100%;
+    border: 1px solid #fff;
+    padding: 16px 12px;
+
+    font-family: 'Roboto';
+    font-size: 16px;
+
+    &:focus {
+      outline: none;
+      border-color: $text-accent;
+    }
+
+    &:disabled {
+      background-color: #fff;
+    }
+  }
+}

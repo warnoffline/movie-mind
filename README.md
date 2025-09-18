@@ -1,69 +1,108 @@
-# React + TypeScript + Vite
+# MovieMind - рецензия фильмов
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MovieMind — это веб-приложение для киноманов. Здесь можно искать фильмы, смотреть карточки с информацией, ставить оценки и писать собственные отзывы.  
+Проект создан на **React + TypeScript** с использованием **Vite**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Технологии
 
-## Expanding the ESLint configuration
+- **React 19** - основной фреймворк
+- **TypeScript** - типизация
+- **Vite** - сборщик и dev-сервер
+- **React Router** - маршрутизация
+- **Sass** - препроцессор CSS
+- **ESLint** - инструмент для статического анализа кода
+- **Prettier** - автоматический форматировщик кода
+- **Yarn 4** - пакетный менеджер
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Дополнительные библиотеки
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Swiper** - работа со слайдерами и каруселями
+- **classnames** - утилита для динамического объединения CSS классов
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📦 Установка и запуск
+
+### Предварительные требования
+
+- Node.js >= 18
+- Yarn 4.9.2+
+
+### Клонирование репозитория
+
+```bash
+git clone https://github.com/your-username/movie-mind.git
+cd movie-mind
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Установка зависимостей
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+yarn install
 ```
+
+### Доступные команды
+
+```bash
+# Запуск в режиме разработки
+yarn dev
+
+# Сборка для продакшена
+yarn build
+
+# Предварительный просмотр собранной версии
+yarn preview
+
+# Проверка линтером
+yarn lint
+
+# Форматирование кода линтером
+yarn lint:fix
+```
+
+---
+
+## 🔧 Настройка окружения
+
+В проекте используется Firebase, поэтому необходимо создать файл `.env` в корне проекта.
+
+1. Создай файл `.env`
+
+Скопируй шаблон из `.env.example`
+
+```bash
+cp .env.example .env
+```
+
+2. Заполни переменные окружения
+
+Т.к. проект разрабатывается в учебных целях, для проверки дз вставьте следующие данные:
+
+```bash
+VITE_FIREBASE_API_KEY=AIzaSyAOOevwbRfgIWrpWFiV1YKav_yqJP5Xnpg
+VITE_FIREBASE_AUTH_DOMAIN=movie-mind-59384.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=movie-mind-59384
+VITE_FIREBASE_STORAGE_BUCKET=movie-mind-59384.firebasestorage.app
+VITE_FIREBASE_MESSAGING_SENDER_ID=265620202234
+VITE_FIREBASE_APP_ID=1:265620202234:web:9e1731e5892a4dc9239f43
+VITE_FIREBASE_MEASUREMENT_ID=G-MYSC5YF3VC
+```
+
+---
+
+## ✅ Домашняя работа №1
+
+- [x] Сетап проекта. Создать проект на `Vite`, подключить линтеры и алиасы.
+- [x] Реализовать страницу списка сущностей проекта
+- [x] Реализовать страницу отображения одной сущности
+- [x] Адаптивная вёрстка. Корректно отрабатывает на ширине 375px, 768px, 1024px, 1440px
+- [x] Роутинг
+- [x] Стили на `css-modules` с использованием `scss`
+
+## Планы по развитию:
+
+- Добавить поиск и фильтрацию
+- Добавить регистрацию и авторизацию
+- Добавить отзывы к фильмам

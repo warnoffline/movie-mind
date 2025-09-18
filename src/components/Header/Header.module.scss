@@ -1,0 +1,40 @@
+@use '@/styles' as *;
+
+.header {
+  display: flex;
+  height: $vh-6;
+  background-color: $bg-header;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: space-between;
+
+  .logo {
+    a {
+      text-decoration: none;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 20px;
+
+    a {
+      text-decoration: none;
+      color: $text-accent;
+      font-weight: 500;
+
+      &:hover {
+        color: $text-accent-hover;
+      }
+
+      &:active {
+        color: v$text-accent-active;
+      }
+    }
+
+    .activeLink {
+      color: $text-primary;
+      text-decoration: underline;
+    }
+  }
+}

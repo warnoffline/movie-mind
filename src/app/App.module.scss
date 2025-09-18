@@ -1,0 +1,6 @@
+@use '@/styles' as *;
+
+.body {
+  background-color: $bg;
+  min-height: $vh-94;
+}
